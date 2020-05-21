@@ -20,7 +20,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
 ?>
 <div id="wrapper">
     <header>
-        <h1>レンタルショップ</h1>
+        <h1>レンタルショップ2</h1>
     </header>
     <div id="contents">
         <main>

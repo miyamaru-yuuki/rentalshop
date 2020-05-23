@@ -20,12 +20,15 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
 ?>
 <div id="wrapper">
     <header>
-        <h1>レンタルショップ2</h1>
+        <h1>レンタルショップ</h1>
     </header>
     <div id="contents">
         <main>
-            <p><a href="quiz.php">クイズを始める</a></p>
-            <p><a href="recordDisplay.php">記録を見る</a></p>
+            <p>Todoの内容検索</p>
+            <form method="GET" action="index.php">
+                <p>Todoの内容 <input type="text" name="tname"></p>
+                <p><input type="submit" value="検索"></p>
+            </form>
         </main>
     </div>
     <footer>

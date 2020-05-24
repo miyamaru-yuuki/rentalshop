@@ -12,7 +12,7 @@ class ShouhinTable
 
     public function search($sname)
     {
-        $sql = $this->db->prepare("SELECT * FROM shouhin3 INNER JOIN shouhinkubun ON shouhin3.skubunId=shouhinkubun.skubunId WHERE shouhin3.sname LIKE ?");
+        $sql = $this->db->prepare("SELECT * FROM shouhin3 INNER JOIN shouhinkubun ON shouhin3.skubunId=shouhinkubun.skubunId WHERE shouhin3.sname LIKE ? ORDER BY sname ASC");
         $sql->bindValue(1, '%'. $sname .'%');
         $sql->execute();
         $all = $sql->fetchAll();

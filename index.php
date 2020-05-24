@@ -1,6 +1,34 @@
 <?php
+session_start();
+session_regenerate_id(true);
+setcookie(session_name(),session_id(),time()+60*60*24*3);
+
+//セッション破棄用
+//$_SESSION = array();
+
 require_once ('function.php');
 require_once ('shouhinTable_class.php');
+$shouhins = [];
+//商品検索
+if(isset($_GET['sname']) && !empty($_GET['sname'])){
+    $sname = $_GET['sname'];
+    $shouhinTable = new ShouhinTable(db());
+    $shouhins = $shouhinTable->search($sname);
+}
+//カート
+if(isset($_GET['sname'],$_GET['rentalDays'])){
+    $sname = $_GET['sname'];
+    $rentalDays = $_GET['rentalDays'];
+    if(isset($_SESSION['sname'],$_SESSION['rentalDays'])){
+        array_push($_SESSION['sname'],$sname);
+        array_push($_SESSION['rentalDays'],$rentalDays);
+    }else{
+        $sname = array($sname);
+        $rentalDays = array($rentalDays);
+        $_SESSION['sname'] = $sname;
+        $_SESSION['rentalDays'] = $rentalDays;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,13 +46,6 @@ require_once ('shouhinTable_class.php');
 if(isset($_GET['error']) && $_GET['error'] == 1){
     echo '<p>指定した画面を表示できませんでした。</p>';
 }
-$shouhins = [];
-//商品検索
-if(isset($_GET['sname']) && !empty($_GET['sname'])){
-    $sname = $_GET['sname'];
-    $shouhinTable = new ShouhinTable(db());
-    $shouhins = $shouhinTable->search($sname);
-}
 ?>
 <div id="wrapper">
     <header>
@@ -32,6 +53,23 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
     </header>
     <div id="contents">
         <main>
+            <?php
+                if(isset($_SESSION['sname'],$_SESSION['rentalDays'])) {
+                    ?>
+                    <table>
+                        <tr>
+                            <th>商品名</th>
+                            <th>レンタル日数</th>
+                        </tr>
+                        <?php
+                        for ($num = 0; $num < count($_SESSION['sname']); $num++) {
+                            echo '<tr><td>' . h($_SESSION['sname'][$num]) . '</td><td>' . $_SESSION['rentalDays'][$num] . '</td></tr>';
+                        }
+                        ?>
+                    </table>
+                    <?php
+                }
+            ?>
             <p>商品検索</p>
             <form method="GET" action="index.php">
                 <p>商品名 <input type="text" name="sname"></p>
@@ -40,7 +78,7 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
             <?php
                 foreach($shouhins as $shouhin){
                     ?>
-                    <p><a href="cartAdd.php"><?php echo $shouhin->getSname(); ?></a></p>
+                    <p><a href="cartAdd.php?sname=<?php echo h($shouhin->getSname()); ?>"><?php echo h($shouhin->getSname()); ?></a></p>
                     <?php
                 }
                 ?>

@@ -10,15 +10,19 @@ class ShouhinTable
         $this->db = $db;
     }
 
-    public function search($tid)
+    public function search($sname)
     {
-        $sql = $this->db->prepare("SELECT * FROM todo2 WHERE tid=?");
-        $sql->bindValue(1, $tid);
+        $sql = $this->db->prepare("SELECT * FROM shouhin3 INNER JOIN shouhinkubun ON shouhin3.skubunId=shouhinkubun.skubunId WHERE shouhin3.sname LIKE ?");
+        $sql->bindValue(1, '%'. $sname .'%');
         $sql->execute();
-        $data = $sql->fetch();
-        $todo = new Todo($data['tid'],$data['tname'],$data['status'],$data['priority'],$data['registrationTime']);
+        $all = $sql->fetchAll();
 
-        return $todo;
+        $ret = array();
+        foreach($all as $data){
+            $shouhin = new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName']);
+            $ret[] = $shouhin;
+        }
+        return $ret;
     }
 
 }

@@ -17,17 +17,14 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
 }
 //カート
 if(isset($_GET['sname'],$_GET['rentalDays'])){
+    if(!isset($_SESSION['sname'])){
+        $_SESSION['sname'] = array();
+        $_SESSION['rentalDays'] = array();
+    }
     $sname = $_GET['sname'];
     $rentalDays = $_GET['rentalDays'];
-    if(isset($_SESSION['sname'],$_SESSION['rentalDays'])){
-        array_push($_SESSION['sname'],$sname);
-        array_push($_SESSION['rentalDays'],$rentalDays);
-    }else{
-        $sname = array($sname);
-        $rentalDays = array($rentalDays);
-        $_SESSION['sname'] = $sname;
-        $_SESSION['rentalDays'] = $rentalDays;
-    }
+    array_push($_SESSION['sname'],$sname);
+    array_push($_SESSION['rentalDays'],$rentalDays);
 }
 ?>
 <!DOCTYPE html>
@@ -54,7 +51,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
     <div id="contents">
         <main>
             <?php
-                if(isset($_SESSION['sname'],$_SESSION['rentalDays'])) {
+                if(isset($_GET['sname'],$_GET['rentalDays'])) {
                     ?>
                     <table>
                         <tr>

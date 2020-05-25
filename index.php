@@ -25,6 +25,8 @@ if(isset($_GET['sname'],$_GET['rentalDays'])){
     $rentalDays = $_GET['rentalDays'];
     array_push($_SESSION['sname'],$sname);
     array_push($_SESSION['rentalDays'],$rentalDays);
+    $sessionSname = $_SESSION['sname'];
+    $sessionRentalDays = $_SESSION['rentalDays'];
 }
 ?>
 <!DOCTYPE html>
@@ -59,8 +61,8 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
                             <th>レンタル日数</th>
                         </tr>
                         <?php
-                        for ($num = 0; $num < count($_SESSION['sname']); $num++) {
-                            echo '<tr><td>' . h($_SESSION['sname'][$num]) . '</td><td>' . $_SESSION['rentalDays'][$num] . '</td></tr>';
+                        for ($num = 0; $num < count($sessionSname); $num++) {
+                            echo '<tr><td>' . h($sessionSname[$num]) . '</td><td>' . $sessionRentalDays[$num] . '</td></tr>';
                         }
                         ?>
                     </table>

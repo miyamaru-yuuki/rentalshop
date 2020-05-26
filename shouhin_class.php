@@ -37,10 +37,10 @@ class Shouhin
 
     public function getKingaku($rentalDays)
     {
+        $kingaku = 0;
         if($this->getSkubunId() == 1){
             $kingaku = 50 * $rentalDays;
         }elseif($this->getSkubunId() == 2){
-            $kingaku = 0;
             for($num=1;$num<=$rentalDays;$num++){
                 if($num == 1){
                     $kingaku = 300;
@@ -49,7 +49,6 @@ class Shouhin
                 }
             }
         }else{
-            $kingaku = 0;
             for($num=1;$num<=$rentalDays;$num++){
                 if($num <= 7){
                     $kingaku = 300;

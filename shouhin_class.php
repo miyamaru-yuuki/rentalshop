@@ -37,24 +37,43 @@ class Shouhin
 
     public function getKingaku($rentalDays)
     {
-        $kingaku = 0;
-        if($this->getSkubunId() == 1){
-            $kingaku = 50 * $rentalDays;
-        }elseif($this->getSkubunId() == 2){
-            for($num=1;$num<=$rentalDays;$num++){
-                if($num == 1){
-                    $kingaku = 300;
-                }else{
-                    $kingaku = $kingaku + 100;
-                }
-            }
+        if($this->getSkubunId() == 1) {
+            $kingaku = $this->getKingakuId1($rentalDays);
+        }elseif($this->getSkubunId() == 2) {
+            $kingaku = $this->getKingakuId2($rentalDays);
         }else{
-            for($num=1;$num<=$rentalDays;$num++){
-                if($num <= 7){
-                    $kingaku = 300;
-                }else{
-                    $kingaku = $kingaku + 100;
-                }
+            $kingaku = $this->getKingakuId3($rentalDays);
+        }
+        return $kingaku;
+    }
+
+    private function getKingakuId1($rentalDays)
+    {
+        for($num=1;$num<=$rentalDays;$num++) {
+            $kingaku = 50 * $rentalDays;
+        }
+        return $kingaku;
+    }
+
+    private function getKingakuId2($rentalDays)
+    {
+        for($num=1;$num<=$rentalDays;$num++) {
+            if ($num == 1) {
+                $kingaku = 300;
+            } else {
+                $kingaku = $kingaku + 100;
+            }
+        }
+        return $kingaku;
+    }
+
+    private function getKingakuId3($rentalDays)
+    {
+        for($num=1;$num<=$rentalDays;$num++) {
+            if($num <= 7){
+                $kingaku = 300;
+            }else{
+                $kingaku = $kingaku + 100;
             }
         }
         return $kingaku;

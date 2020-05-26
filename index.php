@@ -16,15 +16,17 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
     $shouhins = $shouhinTable->search($sname);
 }
 //カート
-if(isset($_GET['sname'],$_GET['rentalDays'])){
+if(isset($_GET['sname'],$_GET['rentalDays'],$_GET['skubunId'])){
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
     $sname = $_GET['sname'];
     $rentalDays = $_GET['rentalDays'];
+    $skubunId =$_GET['skubunId'];
     $kakunou = array(
         'sname' => $sname,
-        'rentalDays' => $rentalDays
+        'rentalDays' => $rentalDays,
+        'skubunId' => $skubunId,
     );
     array_push($_SESSION['cart'],$kakunou);
     $cart = $_SESSION['cart'];
@@ -78,10 +80,13 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
             <?php
                 foreach($shouhins as $shouhin){
                     ?>
-                    <p><a href="cartAdd.php?sname=<?php echo h($shouhin->getSname()); ?>"><?php echo h($shouhin->getSname()); ?></a></p>
+                    <p><a href="cartAdd.php?sname=<?php echo h($shouhin->getSname()); ?>&skubunId=<?php echo $shouhin->getSkubunId(); ?>"><?php echo h($shouhin->getSname()); ?></a></p>
                     <?php
                 }
                 ?>
+            <form method="GET" action="kaikei.php">
+                <p><input type="submit" value="会計する"></p>
+            </form>
         </main>
     </div>
     <footer>

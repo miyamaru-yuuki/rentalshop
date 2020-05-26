@@ -35,8 +35,29 @@ class Shouhin
         return $this->skubunName;
     }
 
-    public function getKingaku()
+    public function getKingaku($rentalDays)
     {
-//        return $this->skubunName;
+        if($this->getSkubunId() == 1){
+            $kingaku = 50 * $rentalDays;
+        }elseif($this->getSkubunId() == 2){
+            $kingaku = 0;
+            for($num=1;$num<=$rentalDays;$num++){
+                if($num == 1){
+                    $kingaku = 300;
+                }else{
+                    $kingaku = $kingaku + 100;
+                }
+            }
+        }else{
+            $kingaku = 0;
+            for($num=1;$num<=$rentalDays;$num++){
+                if($num <= 7){
+                    $kingaku = 300;
+                }else{
+                    $kingaku = $kingaku + 100;
+                }
+            }
+        }
+        return $kingaku;
     }
 }

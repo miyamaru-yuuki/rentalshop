@@ -17,17 +17,17 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
 }
 //カート
 if(isset($_GET['sname'],$_GET['rentalDays'])){
-    if(!isset($_SESSION['sname'])){
-        $_SESSION['sname'] = array();
-        $_SESSION['rentalDays'] = array();
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = array();
     }
     $sname = $_GET['sname'];
     $rentalDays = $_GET['rentalDays'];
-    array_push($_SESSION['sname'],$sname);
-    array_push($_SESSION['rentalDays'],$rentalDays);
-    $cartSname = $_SESSION['sname'];
-    $cartRentalDays = $_SESSION['rentalDays'];
-    var_dump($cartSname);
+    $kakunou = array(
+        'sname' => $sname,
+        'rentalDays' => $rentalDays
+    );
+    array_push($_SESSION['cart'],$kakunou);
+    $cart = $_SESSION['cart'];
 }
 ?>
 <!DOCTYPE html>
@@ -62,8 +62,8 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
                             <th>レンタル日数</th>
                         </tr>
                         <?php
-                        for ($num = 0; $num < count($cartSname); $num++) {
-                            echo '<tr><td>' . h($cartSname[$num]) . '</td><td>' . $cartRentalDays[$num] . '</td></tr>';
+                        foreach ($cart as $data) {
+                            echo '<tr><td>' . h($data['sname']) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
                         }
                         ?>
                     </table>

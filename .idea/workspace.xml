@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5ef23e8-4c12-4710-a531-410bf481d72d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kaikei.php" beforeDir="false" afterPath="$PROJECT_DIR$/kaikei.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="-883">
+              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kaikei.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="35" column="72" lean-forward="true" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+            <state relative-caret-position="86">
+              <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -82,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="834" />
@@ -161,15 +162,15 @@
       <workItem from="1590304696806" duration="139000" />
       <workItem from="1590304859446" duration="7898000" />
       <workItem from="1590461820500" duration="2226000" />
-      <workItem from="1590464110451" duration="5805000" />
+      <workItem from="1590464110451" duration="7029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29470000" />
+    <option name="totallyTimeSpent" value="30694000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="834" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="834" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25178826" />
@@ -239,17 +240,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kaikei.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="35" column="72" lean-forward="true" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+        <state relative-caret-position="-883">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/kaikei.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="22" />
+        <state relative-caret-position="86">
+          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
         </state>
       </provider>
     </entry>

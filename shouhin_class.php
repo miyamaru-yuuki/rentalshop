@@ -61,7 +61,11 @@ class Shouhin
 
     private function getKingakuId3($rentalDays)
     {
-        $kingaku = 300 + 100 * ($rentalDays-7);
+        if($rentalDays <= 7){
+            $kingaku = 300;
+        }else {
+            $kingaku = 300 + 100 * ($rentalDays - 7);
+        }
         return $kingaku;
     }
 }

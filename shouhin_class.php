@@ -49,14 +49,13 @@ class Shouhin
 
     private function getKingakuId1($rentalDays)
     {
-        for($num=1;$num<=$rentalDays;$num++) {
-            $kingaku = 50 * $rentalDays;
-        }
+        $kingaku = 50 * $rentalDays;
         return $kingaku;
     }
 
     private function getKingakuId2($rentalDays)
     {
+        $kingaku = 0;
         for($num=1;$num<=$rentalDays;$num++) {
             if ($num == 1) {
                 $kingaku = 300;
@@ -69,6 +68,7 @@ class Shouhin
 
     private function getKingakuId3($rentalDays)
     {
+        $kingaku = 0;
         for($num=1;$num<=$rentalDays;$num++) {
             if($num <= 7){
                 $kingaku = 300;

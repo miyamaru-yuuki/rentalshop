@@ -31,7 +31,7 @@ class ShouhinTable
         $sql->bindValue(1,$shouhin->getSkubunId());
         $sql->execute();
         $data = $sql->fetch();
-        return $data;
+        return $data['skubunName'];
     }
 
 }

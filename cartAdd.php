@@ -11,7 +11,6 @@ $skubunId =$_GET['skubunId'];
 $shouhin= new Shouhin(null,$sname,$skubunId,null);
 $shouhinTable = new ShouhinTable(db());
 $skubunName = $shouhinTable->getSkubunName($shouhin);
-$skubunName = $skubunName['skubunName'];
 ?>
 <!DOCTYPE html>
 <html>

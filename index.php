@@ -16,17 +16,19 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
     $shouhins = $shouhinTable->search($sname);
 }
 //カート
-if(isset($_GET['sname'],$_GET['rentalDays'],$_GET['skubunId'])){
+if(isset($_GET['sname'],$_GET['rentalDays'],$_GET['skubunId'],$_GET['skubunName'])){
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
     $sname = $_GET['sname'];
     $rentalDays = $_GET['rentalDays'];
     $skubunId =$_GET['skubunId'];
+    $skubunName =$_GET['skubunName'];
     $kakunou = array(
         'sname' => $sname,
         'rentalDays' => $rentalDays,
         'skubunId' => $skubunId,
+        'skubunName' => $skubunName,
     );
     array_push($_SESSION['cart'],$kakunou);
     $cart = $_SESSION['cart'];
@@ -56,16 +58,17 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
     <div id="contents">
         <main>
             <?php
-                if(isset($_GET['sname'],$_GET['rentalDays'])) {
+                if(isset($_GET['sname'],$_GET['rentalDays'],$_GET['skubunName'])) {
                     ?>
                     <table>
                         <tr>
+                            <th>商品区分</th>
                             <th>商品名</th>
                             <th>レンタル日数</th>
                         </tr>
                         <?php
                         foreach ($cart as $data) {
-                            echo '<tr><td>' . h($data['sname']) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
+                            echo '<tr><td>' . h($data['skubunName']) . '</td><td>' . h($data['sname']) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
                         }
                         ?>
                     </table>

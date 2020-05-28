@@ -36,7 +36,7 @@ $cart = $_SESSION['cart'];
                 $kingaku = $shouhin->getKingaku($data['rentalDays']);
                 $goukeikingaku = $goukeikingaku + $kingaku;
                 ?>
-            <p><?php echo h($shouhinTable->getSkubunName($shouhin)); ?>:<?php echo h($shouhin->getSname());?> <?php echo $data['rentalDays']; ?> <?php echo $kingaku; ?></p>
+            <p><?php echo h($shouhinTable->getSkubunName($shouhin->getSkubunId())); ?>:<?php echo h($shouhin->getSname());?> <?php echo $data['rentalDays']; ?> <?php echo $kingaku; ?></p>
             <?php
             }
             ?>

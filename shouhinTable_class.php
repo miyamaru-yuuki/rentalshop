@@ -25,10 +25,10 @@ class ShouhinTable
         return $ret;
     }
 
-    public function getSkubunName($shouhin)
+    public function getSkubunName($skubunId)
     {
         $sql = $this->db->prepare("SELECT skubunName FROM shouhinkubun WHERE skubunId=?");
-        $sql->bindValue(1,$shouhin->getSkubunId());
+        $sql->bindValue(1,$skubunId);
         $sql->execute();
         $data = $sql->fetch();
         return $data['skubunName'];

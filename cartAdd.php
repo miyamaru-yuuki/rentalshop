@@ -1,6 +1,5 @@
 <?php
 require_once ('function.php');
-require_once ('shouhin_class.php');
 require_once ('shouhinTable_class.php');
 if(!isset($_GET['sname'],$_GET['skubunId'])){
     header("Location: http://mmr.e5.valueserver.jp/rentalshop/index.php?error=1");
@@ -8,9 +7,8 @@ if(!isset($_GET['sname'],$_GET['skubunId'])){
 }
 $sname = $_GET['sname'];
 $skubunId =$_GET['skubunId'];
-$shouhin= new Shouhin(null,$sname,$skubunId,null);
 $shouhinTable = new ShouhinTable(db());
-$skubunName = $shouhinTable->getSkubunName($shouhin);
+$skubunName = $shouhinTable->getSkubunName($skubunId);
 ?>
 <!DOCTYPE html>
 <html>

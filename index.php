@@ -83,7 +83,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
             <?php
                 foreach($shouhins as $shouhin){
                     ?>
-                    <p><a href="cartAdd.php?sname=<?php echo h($shouhin->getSname()); ?>&skubunId=<?php echo $shouhin->getSkubunId(); ?>"><?php echo h($shouhin->getSname()); ?></a></p>
+                    <p><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a></p>
                     <?php
                 }
                 ?>

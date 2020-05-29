@@ -1,13 +1,14 @@
 <?php
 require_once ('function.php');
 require_once ('shouhinTable_class.php');
-if(!isset($_GET['sname'],$_GET['skubunId'])){
+if(!isset($_GET['sid'])){
     header("Location: http://mmr.e5.valueserver.jp/rentalshop/index.php?error=1");
     exit();
 }
-$sname = $_GET['sname'];
-$skubunId =$_GET['skubunId'];
+$sid = $_GET['sid'];
 $shouhinTable = new ShouhinTable(db());
+$sname = $shouhinTable->getSname($sid);
+$skubunId = $shouhinTable->getSkubunId($sid);
 $skubunName = $shouhinTable->getSkubunName($skubunId);
 ?>
 <!DOCTYPE html>

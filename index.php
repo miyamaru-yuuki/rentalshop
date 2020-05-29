@@ -6,6 +6,8 @@ setcookie(session_name(),session_id(),time()+60*60*24*3);
 //セッション破棄用
 //$_SESSION = array();
 
+var_dump($shouhin);
+
 require_once ('function.php');
 require_once ('shouhinTable_class.php');
 $shouhins = [];

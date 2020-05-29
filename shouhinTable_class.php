@@ -25,22 +25,14 @@ class ShouhinTable
         return $ret;
     }
 
-    public function getSname($sid)
+    public function getShouhin($sid)
     {
-        $sql = $this->db->prepare("SELECT sname FROM shouhin3 WHERE sid=?");
+        $sql = $this->db->prepare("SELECT * FROM shouhin3 WHERE sid=?");
         $sql->bindValue(1,$sid);
         $sql->execute();
         $data = $sql->fetch();
-        return $data['sname'];
-    }
-
-    public function getSkubunId($sid)
-    {
-        $sql = $this->db->prepare("SELECT skubunId FROM shouhin3 WHERE sid=?");
-        $sql->bindValue(1,$sid);
-        $sql->execute();
-        $data = $sql->fetch();
-        return $data['skubunId'];
+        $shouhin = new Shouhin($data['sid'],$data['sname'],$data['skubunId'],null);
+        return $shouhin;
     }
 
     public function getSkubunName($skubunId)

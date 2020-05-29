@@ -7,8 +7,9 @@ if(!isset($_GET['sid'])){
 }
 $sid = $_GET['sid'];
 $shouhinTable = new ShouhinTable(db());
-$sname = $shouhinTable->getSname($sid);
-$skubunId = $shouhinTable->getSkubunId($sid);
+$shouhin = $shouhinTable->getShouhin($sid);
+$sname = $shouhin->getSname();
+$skubunId = $shouhin->getSkubunId();
 $skubunName = $shouhinTable->getSkubunName($skubunId);
 ?>
 <!DOCTYPE html>

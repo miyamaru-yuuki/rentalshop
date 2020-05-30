@@ -9,8 +9,6 @@ $sid = $_GET['sid'];
 $shouhinTable = new ShouhinTable(db());
 $shouhin = $shouhinTable->getShouhin($sid);
 $sname = $shouhin->getSname();
-//$skubunId = $shouhinTable->getSkubunId($sid);
-//$skubunName = $shouhinTable->getSkubunName($skubunId);
 ?>
 <!DOCTYPE html>
 <html>

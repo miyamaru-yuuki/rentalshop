@@ -8,7 +8,9 @@ if(!isset($_GET['sid'])){
 $sid = $_GET['sid'];
 $shouhinTable = new ShouhinTable(db());
 $shouhin = $shouhinTable->getShouhin($sid);
-$skubunName = $shouhinTable->getSkubunName($shouhin->getSkubunId());
+$sname = $shouhin->getSname();
+//$skubunId = $shouhinTable->getSkubunId($sid);
+//$skubunName = $shouhinTable->getSkubunName($skubunId);
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,10 +30,9 @@ $skubunName = $shouhinTable->getSkubunName($shouhin->getSkubunId());
     <div id="contents">
         <main>
             <form method="GET" action="index.php">
-                <p>商品名:<?php echo h($shouhin->getSname()); ?></p>
+                <p>商品名:<?php echo h($sname); ?></p>
                 <p>レンタル日数:<input type="number" name="rentalDays">日</p>
-                <input type="hidden" name="shouhin" value="<?php echo $shouhin; ?>">
-                <input type="hidden" name="skubunName" value="<?php echo h($skubunName); ?>">
+                <input type="hidden" name="sid" value="<?php echo $sid; ?>">
                 <p><input type="submit" value="カートに入れる"></p>
             </form>
         </main>

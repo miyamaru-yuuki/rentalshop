@@ -6,8 +6,6 @@ setcookie(session_name(),session_id(),time()+60*60*24*3);
 //セッション破棄用
 //$_SESSION = array();
 
-var_dump($shouhin);
-
 require_once ('function.php');
 require_once ('shouhinTable_class.php');
 $shouhins = [];
@@ -18,14 +16,17 @@ if(isset($_GET['sname']) && !empty($_GET['sname'])){
     $shouhins = $shouhinTable->search($sname);
 }
 //カート
-if(isset($_GET['sname'],$_GET['rentalDays'],$_GET['skubunId'],$_GET['skubunName'])){
+if(isset($_GET['sid'],$_GET['rentalDays'])){
+    $sid = $_GET['sid'];
+    $rentalDays = $_GET['rentalDays'];
+    $shouhinTable = new ShouhinTable(db());
+    $shouhin = $shouhinTable->getShouhin($sid);
+    $sname = $shouhin->getSname();
+    $skubunId = $shouhin->getSkubunId($sid);
+    $skubunName = $shouhinTable->getSkubunName($skubunId);
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
-    $sname = $_GET['sname'];
-    $rentalDays = $_GET['rentalDays'];
-    $skubunId =$_GET['skubunId'];
-    $skubunName =$_GET['skubunName'];
     $kakunou = array(
         'sname' => $sname,
         'rentalDays' => $rentalDays,
@@ -60,7 +61,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
     <div id="contents">
         <main>
             <?php
-                if(isset($_GET['sname'],$_GET['rentalDays'],$_GET['skubunName'])) {
+                if(isset($_GET['sid'],$_GET['rentalDays'])) {
                     ?>
                     <table>
                         <tr>

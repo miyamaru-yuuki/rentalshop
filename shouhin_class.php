@@ -7,11 +7,12 @@ class Shouhin
     private $skubunId;
     private $skubunName;
 
-    public function __construct($sid,$sname,$skubunId)
+    public function __construct($sid,$sname,$skubunId,$skubunName)
     {
         $this->sid = $sid;
         $this->sname = $sname;
         $this->skubunId = $skubunId;
+        $this->skubunName = $skubunName;
     }
 
     public function getSid()
@@ -27,6 +28,11 @@ class Shouhin
     public function getSkubunId()
     {
         return $this->skubunId;
+    }
+
+    public function getSkubunName()
+    {
+        return $this->skubunName;
     }
 
     public function getKingaku($rentalDays)

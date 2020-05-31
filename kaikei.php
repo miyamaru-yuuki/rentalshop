@@ -32,7 +32,7 @@ $cart = $_SESSION['cart'];
             $goukeikingaku = 0;
             $shouhinTable = new ShouhinTable(db());
             foreach ($cart as $data){
-                $shouhin= new Shouhin(null,$data['sname'],$data['skubunId']);
+                $shouhin= new Shouhin(null,$data['sname'],$data['skubunId'],null);
                 $kingaku = $shouhin->getKingaku($data['rentalDays']);
                 $goukeikingaku = $goukeikingaku + $kingaku;
                 ?>

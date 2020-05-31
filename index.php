@@ -27,6 +27,7 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
         $_SESSION['cart'] = array();
     }
     $kakunou = array(
+        'sid' => $sid,
         'sname' => $sname,
         'rentalDays' => $rentalDays,
         'skubunId' => $skubunId,

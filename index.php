@@ -23,6 +23,7 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
     $sname = $shouhin->getSname();
     $skubunId = $shouhin->getSkubunId();
     $skubunName = $shouhin->getSkubunName();
+    $kingaku = $shouhin->getKingaku($rentalDays);
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
@@ -32,6 +33,7 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
         'rentalDays' => $rentalDays,
         'skubunId' => $skubunId,
         'skubunName' => $skubunName,
+        'kingaku' => $kingaku
     );
     array_push($_SESSION['cart'],$kakunou);
     $cart = $_SESSION['cart'];

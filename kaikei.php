@@ -32,10 +32,9 @@ $cart = $_SESSION['cart'];
             $goukeikingaku = 0;
             foreach ($cart as $data){
                 $shouhin= new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName']);
-                $kingaku = $shouhin->getKingaku($data['rentalDays']);
-                $goukeikingaku = $goukeikingaku + $kingaku;
+                $goukeikingaku = $goukeikingaku + $data['kingaku'];
                 ?>
-            <p><?php echo h($shouhin->getSkubunName()); ?>:<?php echo h($shouhin->getSname());?> <?php echo $data['rentalDays']; ?> <?php echo $kingaku; ?></p>
+            <p><?php echo h($shouhin->getSkubunName()); ?>:<?php echo h($shouhin->getSname());?> <?php echo $data['rentalDays']; ?> <?php echo $data['kingaku']; ?></p>
             <?php
             }
             ?>

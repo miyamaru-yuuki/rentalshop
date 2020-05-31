@@ -22,7 +22,7 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
     $shouhin = $shouhinTable->getShouhin($sid);
     $sname = $shouhin->getSname();
     $skubunId = $shouhin->getSkubunId();
-    $skubunName = $shouhinTable->getSkubunName($skubunId);
+    $skubunName = $shouhin->getSkubunName();
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }

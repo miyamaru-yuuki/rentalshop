@@ -30,13 +30,12 @@ $cart = $_SESSION['cart'];
         <main>
             <?php
             $goukeikingaku = 0;
-            $shouhinTable = new ShouhinTable(db());
             foreach ($cart as $data){
                 $shouhin= new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName']);
                 $kingaku = $shouhin->getKingaku($data['rentalDays']);
                 $goukeikingaku = $goukeikingaku + $kingaku;
                 ?>
-            <p><?php echo h($shouhinTable->getSkubunName($shouhin->getSkubunId())); ?>:<?php echo h($shouhin->getSname());?> <?php echo $data['rentalDays']; ?> <?php echo $kingaku; ?></p>
+            <p><?php echo h($shouhin->getSkubunName()); ?>:<?php echo h($shouhin->getSname());?> <?php echo $data['rentalDays']; ?> <?php echo $kingaku; ?></p>
             <?php
             }
             ?>

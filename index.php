@@ -9,17 +9,16 @@ setcookie(session_name(),session_id(),time()+60*60*24*3);
 require_once ('function.php');
 require_once ('shouhinTable_class.php');
 $shouhins = [];
+$shouhinTable = new ShouhinTable(db());
 //商品検索
 if(isset($_GET['sname']) && !empty($_GET['sname'])){
     $sname = $_GET['sname'];
-    $shouhinTable = new ShouhinTable(db());
     $shouhins = $shouhinTable->search($sname);
 }
 //カート
 if(isset($_GET['sid'],$_GET['rentalDays'])){
     $sid = $_GET['sid'];
     $rentalDays = $_GET['rentalDays'];
-    $shouhinTable = new ShouhinTable(db());
     $shouhin = $shouhinTable->getShouhin($sid);
     $sname = $shouhin->getSname();
     $skubunId = $shouhin->getSkubunId();

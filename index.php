@@ -20,23 +20,16 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
     $sid = $_GET['sid'];
     $rentalDays = $_GET['rentalDays'];
     $shouhin = $shouhinTable->getShouhin($sid);
-    $sname = $shouhin->getSname();
-    $skubunId = $shouhin->getSkubunId();
-    $skubunName = $shouhin->getSkubunName();
-    $kingaku = $shouhin->getKingaku($rentalDays);
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
     $kakunou = array(
-        'sid' => $sid,
-        'sname' => $sname,
-        'rentalDays' => $rentalDays,
-        'skubunId' => $skubunId,
-        'skubunName' => $skubunName,
-        'kingaku' => $kingaku
+        'shouhin' => $shouhin,
+        'rentalDays' => $rentalDays
     );
     array_push($_SESSION['cart'],$kakunou);
     $cart = $_SESSION['cart'];
+    var_dump($cart);
 }
 ?>
 <!DOCTYPE html>
@@ -73,7 +66,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
                         </tr>
                         <?php
                         foreach ($cart as $data) {
-                            echo '<tr><td>' . h($data['skubunName']) . '</td><td>' . h($data['sname']) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
+                            echo '<tr><td>' . h($data['shouhin']->getSkubunName()) . '</td><td>' . h($shouhin->getSname()) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
                         }
                         ?>
                     </table>

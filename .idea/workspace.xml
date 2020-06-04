@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5ef23e8-4c12-4710-a531-410bf481d72d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cartAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/cartAdd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="374">
+              <caret line="88" column="51" lean-forward="true" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -83,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="834" />
@@ -165,12 +164,12 @@
       <workItem from="1590464110451" duration="12561000" />
       <workItem from="1590539842273" duration="8728000" />
       <workItem from="1590643554346" duration="1700000" />
-      <workItem from="1590703904315" duration="30645000" />
+      <workItem from="1590703904315" duration="31370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77299000" />
+    <option name="totallyTimeSpent" value="78024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="834" extended-state="0" />
@@ -252,8 +251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="22" />
+        <state relative-caret-position="374">
+          <caret line="88" column="51" lean-forward="true" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
         </state>
       </provider>
     </entry>

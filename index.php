@@ -77,13 +77,15 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
                 <p>商品名 <input type="text" name="sname"></p>
                 <p><input type="submit" value="検索"></p>
             </form>
+            <div>
             <?php
                 foreach($shouhins as $shouhin){
                     ?>
-                    <div><p><?php echo $shouhin->getSkubunName(); ?></p><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a></div>
+                    <div><?php echo $shouhin->getSkubunName(); ?></div><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a>
                     <?php
                 }
                 ?>
+            </div>
             <form method="GET" action="kaikei.php">
                 <p><input type="submit" value="会計する"></p>
             </form>

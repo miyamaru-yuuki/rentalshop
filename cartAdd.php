@@ -9,6 +9,7 @@ $sid = $_GET['sid'];
 $shouhinTable = new ShouhinTable(db());
 $shouhin = $shouhinTable->getShouhin($sid);
 $sname = $shouhin->getSname();
+$skubunName = $shouhin->getSkubunName();
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +29,7 @@ $sname = $shouhin->getSname();
     <div id="contents">
         <main>
             <form method="GET" action="index.php">
+                <p>商品区分:<?php echo h($skubunName); ?></p>
                 <p>商品名:<?php echo h($sname); ?></p>
                 <p>レンタル日数:<input type="number" name="rentalDays">日</p>
                 <input type="hidden" name="sid" value="<?php echo $sid; ?>">

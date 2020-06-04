@@ -1,10 +1,10 @@
 <?php
+require_once ('function.php');
+require_once ('shouhinTable_class.php');
 session_start();
 session_regenerate_id(true);
 setcookie(session_name(),session_id(),time()+60*60*24*3);
 
-require_once ('function.php');
-require_once ('shouhinTable_class.php');
 if(!isset($_SESSION['cart'])){
     header("Location: http://mmr.e5.valueserver.jp/rentalshop/index.php?error=1");
     exit();

@@ -1,4 +1,6 @@
 <?php
+require_once ('function.php');
+require_once ('shouhinTable_class.php');
 session_start();
 session_regenerate_id(true);
 setcookie(session_name(),session_id(),time()+60*60*24*3);
@@ -6,8 +8,6 @@ setcookie(session_name(),session_id(),time()+60*60*24*3);
 //セッション破棄用
 //$_SESSION = array();
 
-require_once ('function.php');
-require_once ('shouhinTable_class.php');
 $shouhins = [];
 $shouhinTable = new ShouhinTable(db());
 //商品検索
@@ -29,7 +29,6 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
     );
     array_push($_SESSION['cart'],$kakunou);
     $cart = $_SESSION['cart'];
-    var_dump($cart);
 }
 ?>
 <!DOCTYPE html>
@@ -66,7 +65,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
                         </tr>
                         <?php
                         foreach ($cart as $data) {
-                            echo '<tr><td>' . h($data['shouhin']->getSkubunName()) . '</td><td>' . h($shouhin->getSname()) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
+                            echo '<tr><td>' . h($data['shouhin']->getSkubunName()) . '</td><td>' . h($data['shouhin']->getSname()) . '</td><td>' . $data['rentalDays'] . '</td></tr>';
                         }
                         ?>
                     </table>

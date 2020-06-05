@@ -29,6 +29,7 @@ $skubunName = $shouhin->getSkubunName();
     <div id="contents">
         <main>
             <form method="GET" action="index.php">
+                <p>商品ID:<?php echo $sid; ?></p>
                 <p>商品区分:<?php echo h($skubunName); ?></p>
                 <p>商品名:<?php echo h($sname); ?></p>
                 <p>レンタル日数:<input type="number" name="rentalDays">日</p>

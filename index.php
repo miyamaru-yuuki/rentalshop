@@ -81,7 +81,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
             <?php
                 foreach($shouhins as $shouhin){
                     ?>
-                    <tr><td><?php echo $shouhin->getSkubunName(); ?></td><td><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a></td></tr>
+                    <tr><td><?php echo $shouhin->getSid(); ?></td><td><?php echo $shouhin->getSkubunName(); ?></td><td><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a></td></tr>
                     <?php
                 }
                 ?>

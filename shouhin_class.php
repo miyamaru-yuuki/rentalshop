@@ -6,13 +6,15 @@ class Shouhin
     private $sname;
     private $skubunId;
     private $skubunName;
+    private $releaseYear;
 
-    public function __construct($sid,$sname,$skubunId,$skubunName)
+    public function __construct($sid,$sname,$skubunId,$skubunName,$releaseYear)
     {
         $this->sid = $sid;
         $this->sname = $sname;
         $this->skubunId = $skubunId;
         $this->skubunName = $skubunName;
+        $this->releaseYear = $releaseYear;
     }
 
     public function getSid()
@@ -33,6 +35,11 @@ class Shouhin
     public function getSkubunName()
     {
         return $this->skubunName;
+    }
+
+    public function getReleaseYear()
+    {
+        return $this->releaseYear;
     }
 
     public function getKingaku($rentalDays)

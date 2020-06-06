@@ -19,7 +19,7 @@ class ShouhinTable
 
         $ret = array();
         foreach($all as $data){
-            $shouhin = new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName']);
+            $shouhin = new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName'],$data['releaseYear']);
             $ret[] = $shouhin;
         }
         return $ret;
@@ -31,7 +31,7 @@ class ShouhinTable
         $sql->bindValue(1,$sid);
         $sql->execute();
         $data = $sql->fetch();
-        $shouhin = new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName']);
+        $shouhin = new Shouhin($data['sid'],$data['sname'],$data['skubunId'],$data['skubunName'],$data['releaseYear']);
         return $shouhin;
     }
 

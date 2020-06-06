@@ -78,10 +78,11 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
                 <p><input type="submit" value="検索"></p>
             </form>
             <table>
+                <tr><th>商品ID</th><th>商品区分名</th><th>発売年</th><th>商品名</th></tr>
             <?php
                 foreach($shouhins as $shouhin){
                     ?>
-                    <tr><td><?php echo $shouhin->getSid(); ?></td><td><?php echo $shouhin->getSkubunName(); ?></td><td><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a></td></tr>
+                    <tr><td><?php echo $shouhin->getSid(); ?></td><td><?php echo $shouhin->getSkubunName(); ?></td><td><?php echo $shouhin->getReleaseYear(); ?></td><td><a href="cartAdd.php?sid=<?php echo $shouhin->getSid(); ?>"><?php echo h($shouhin->getSname()); ?></a></td></tr>
                     <?php
                 }
                 ?>

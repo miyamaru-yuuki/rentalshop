@@ -8,9 +8,6 @@ if(!isset($_GET['sid'])){
 $sid = $_GET['sid'];
 $shouhinTable = new ShouhinTable(db());
 $shouhin = $shouhinTable->getShouhin($sid);
-$sname = $shouhin->getSname();
-$skubunName = $shouhin->getSkubunName();
-$releaseYear = $shouhin->getReleaseYear();
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,9 +28,9 @@ $releaseYear = $shouhin->getReleaseYear();
         <main>
             <form method="GET" action="index.php">
                 <p>商品ID:<?php echo $sid; ?></p>
-                <p>商品区分:<?php echo h($skubunName); ?></p>
-                <p>発売年:<?php echo $releaseYear; ?></p>
-                <p>商品名:<?php echo h($sname); ?></p>
+                <p>商品区分:<?php echo h($shouhin->getSkubunName()); ?></p>
+                <p>発売年:<?php echo $shouhin->getReleaseYear(); ?></p>
+                <p>商品名:<?php echo h($shouhin->getSname()); ?></p>
                 <p>レンタル日数:<input type="number" name="rentalDays">日</p>
                 <input type="hidden" name="sid" value="<?php echo $sid; ?>">
                 <p><input type="submit" value="カートに入れる"></p>

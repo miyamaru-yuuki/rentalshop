@@ -7,29 +7,6 @@ setcookie(session_name(),session_id(),time()+60*60*24*3);
 
 //セッション破棄用
 //$_SESSION = array();
-
-$shouhins = [];
-$shouhinTable = new ShouhinTable(db());
-//商品検索
-if(isset($_GET['sname']) && !empty($_GET['sname'])){
-    $sname = $_GET['sname'];
-    $shouhins = $shouhinTable->search($sname);
-}
-//カート
-if(isset($_GET['sid'],$_GET['rentalDays'])){
-    $sid = $_GET['sid'];
-    $rentalDays = $_GET['rentalDays'];
-    $shouhin = $shouhinTable->getShouhin($sid);
-    if(!isset($_SESSION['cart'])){
-        $_SESSION['cart'] = array();
-    }
-    $kakunou = array(
-        'shouhin' => $shouhin,
-        'rentalDays' => $rentalDays
-    );
-    array_push($_SESSION['cart'],$kakunou);
-    $cart = $_SESSION['cart'];
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +22,33 @@ if(isset($_GET['sid'],$_GET['rentalDays'])){
 <?php
 //エラー処理
 if(isset($_GET['error']) && $_GET['error'] == 1){
-    echo '<p>指定した画面を表示できませんでした。</p>';
+    echo '<p>カートの中身が空です。</p>';
+}
+$shouhins = [];
+$shouhinTable = new ShouhinTable(db());
+//商品検索
+if(isset($_GET['sname'])){
+    if(empty($_GET['sname'])) {
+        echo '<p>検索内容が入力されていません。</p>';
+    }else{
+        $sname = $_GET['sname'];
+        $shouhins = $shouhinTable->search($sname);
+    }
+}
+//カート
+if(isset($_GET['sid'],$_GET['rentalDays'])){
+    $sid = $_GET['sid'];
+    $rentalDays = $_GET['rentalDays'];
+    $shouhin = $shouhinTable->getShouhin($sid);
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = array();
+    }
+    $kakunou = array(
+        'shouhin' => $shouhin,
+        'rentalDays' => $rentalDays
+    );
+    array_push($_SESSION['cart'],$kakunou);
+    $cart = $_SESSION['cart'];
 }
 ?>
 <div id="wrapper">

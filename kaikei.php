@@ -6,7 +6,7 @@ session_regenerate_id(true);
 setcookie(session_name(),session_id(),time()+60*60*24*3);
 
 if(!isset($_SESSION['cart'])){
-    header("Location: http://mmr.e5.valueserver.jp/rentalshop/index.php?error=1");
+    header("Location: http://mmr.e5.valueserver.jp/rentalshop/index.php?error=2");
     exit();
 }
 $cart = $_SESSION['cart'];

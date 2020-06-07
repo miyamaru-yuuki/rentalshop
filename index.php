@@ -22,6 +22,8 @@ setcookie(session_name(),session_id(),time()+60*60*24*3);
 <?php
 //エラー処理
 if(isset($_GET['error']) && $_GET['error'] == 1){
+    echo '<p>その画面は表示できません。</p>';
+}elseif(isset($_GET['error']) && $_GET['error'] == 2){
     echo '<p>カートの中身が空です。</p>';
 }
 $shouhins = [];
@@ -33,6 +35,9 @@ if(isset($_GET['sname'])){
     }else{
         $sname = $_GET['sname'];
         $shouhins = $shouhinTable->search($sname);
+        if(!$shouhins){
+            echo '<p>一致する商品名がありません。</p>';
+        }
     }
 }
 //カート

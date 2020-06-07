@@ -1,6 +1,9 @@
 <?php
 require_once ('function.php');
 require_once ('shouhinTable_class.php');
+if(isset($_GET['error']) && $_GET['error'] == 3){
+    echo '<p>レンタル日数は1日以上を指定してください。</p>';
+}
 if(!isset($_GET['sid'])){
     header("Location: http://mmr.e5.valueserver.jp/rentalshop/index.php?error=1");
     exit();

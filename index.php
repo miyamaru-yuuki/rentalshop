@@ -44,6 +44,10 @@ if(isset($_GET['sname'])){
 if(isset($_GET['sid'],$_GET['rentalDays'])){
     $sid = $_GET['sid'];
     $rentalDays = $_GET['rentalDays'];
+    if($rentalDays == 0){
+        header("Location: http://mmr.e5.valueserver.jp/rentalshop/cartAdd.php?error=3&sid=" .$sid);
+        exit();
+    }
     $shouhin = $shouhinTable->getShouhin($sid);
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();

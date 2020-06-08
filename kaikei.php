@@ -10,6 +10,8 @@ if(!isset($_SESSION['cart'])){
     exit();
 }
 $cart = $_SESSION['cart'];
+//セッション破棄
+$_SESSION = array();
 ?>
 <!DOCTYPE html>
 <html>

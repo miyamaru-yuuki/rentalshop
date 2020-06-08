@@ -4,9 +4,6 @@ require_once ('shouhinTable_class.php');
 session_start();
 session_regenerate_id(true);
 setcookie(session_name(),session_id(),time()+60*60*24*3);
-
-//セッション破棄用
-//$_SESSION = array();
 ?>
 <!DOCTYPE html>
 <html>

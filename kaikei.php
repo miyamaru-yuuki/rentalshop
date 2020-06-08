@@ -11,7 +11,9 @@ if(!isset($_SESSION['cart'])){
 }
 $cart = $_SESSION['cart'];
 //セッション破棄
-$_SESSION = array();
+$_SESSION=array();
+setcookie(session_name(),'',time()-1800);
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
